@@ -1,0 +1,1174 @@
+<html>
+	<head>
+		<title>Apple</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<style>
+			* {
+			font-family: SF Pro Text,SF Pro Icons,AOS Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+			}
+			.topnav {
+			overflow: hidden;
+			background-color: black;
+			}
+			.topnav a {
+			float: left;
+			color: #f2f2f2;
+			text-align: center;
+			padding: 14px 24px;
+			text-decoration: none;
+			font-size: 13px;
+			}
+			.topnav a:hover {
+			color: white;
+			}
+			.topnav a.active {
+			color: white;
+			}
+			rf-cards-scroller-itemview {
+			display: flex;
+			height: 500px;
+			margin-right: 20px;
+			transform: translateX(calc(max(1024px, 100vw)/2 - 490px));
+			}
+			html.js .as-util-relatedlink {
+			cursor: pointer;
+			}
+			.rf-ccard-40 .rf-ccard-content {
+			width: 400px;
+			}
+			.rf-ccard-content.rf-ccard-content-withfullimg {
+			flex-direction: row;
+			justify-content: center;
+			}
+			.rf-ccard-content{
+			display: flex;
+			flex-direction: column;
+			position: relative;
+			overflow: hidden;
+			background-color: hsl(0deg 0% 100%);
+			border-radius: 18px;
+			width: 480px;
+			height: 500px;
+			/* white-space: normal; */
+			box-shadow: 2px 4px 12px rgb(0 0 0 / 8%);
+			transition: all .3s cubic-bezier(0,0,.5,1);
+			}
+			.rf-ccard-img-full {
+			width: 100%;
+			height: 100%;
+			-o-object-fit: cover;
+			object-fit: cover;
+			display: block;
+			}
+			.rf-ccard-img-full-wrapper+.rf-ccard-content-info, .rf-ccard-video-full-wrapper+.rf-ccard-content-info {
+			position: absolute;
+			left: 0;}
+			.rf-ccard-content-info {
+			padding: 30px;
+			width: 340px;
+			}
+			.rf-ccard-content-eyebrow {
+			font-size: 12px;
+			line-height: 1.33337;
+			font-weight: 400;
+			letter-spacing: -.01em;
+			font-family: SF Pro Text,SF Pro Icons,AOS Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+			font-weight: 600;
+			color: hsl(240deg 2% 44%);
+			width: 204px;
+			padding-bottom: 8px;
+			}
+			.rf-ccard-content-header {
+			font-size: 28px;
+			line-height: 1.14286;
+			font-weight: 600;
+			letter-spacing: .007em;
+			font-family: SF Pro Display,SF Pro Icons,AOS Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+			}
+			.rf-ccard-content-desc {
+			font-size: 17px;
+			line-height: 1.23536;
+			font-weight: 400;
+			letter-spacing: -.022em;
+			font-family: SF Pro Text,SF Pro Icons,AOS Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+			color: hsl(240deg 3% 12%);
+			padding-top: 10px;
+			margin-top: 0;
+			}
+			.rs-cards-shelf-header {
+			padding-bottom: 14px;
+			}
+			.rf-cards-scroller-content {
+			overscroll-behavior-x: contain;
+			}
+			.rf-cards-scroller-platter {
+			width: 100%;
+			vertical-align: top;
+			display: inline-flex;
+			padding-top: 10px;
+			padding-bottom: 40px;
+			background-color: hsl(230deg 9% 13%) !important ;
+			}
+			.rs-cards-shelf-mainheader, .rs-cards-shelf-secondaryheader {
+			font-size: 28px;
+			line-height: 1.14286;
+			font-weight: 600;
+			letter-spacing: .007em;
+			font-family: SF Pro Display,SF Pro Icons,AOS Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+			display: inline;
+			}
+			.rs-cards-shelf-secondaryheader {
+			color: hsl(240deg 2% 44%);
+			}
+			.rs-cards-shelf-mainheader, .rs-cards-shelf-secondaryheader {
+			font-size: 28px;
+			line-height: 1.14286;
+			font-weight: 600;
+			letter-spacing: .007em;
+			font-family: SF Pro Display,SF Pro Icons,AOS Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+			display: inline;
+			}
+			.rf-alp-search-header {
+			font-size: 32px;
+			line-height: 1.125;
+			font-weight: 600;
+			letter-spacing: .004em;
+			font-family: SF Pro Display,SF Pro Icons,AOS Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+			padding: 75px 0 12px;
+			text-align: center;
+			}
+			.as-l-container {
+			margin-left: auto;
+			margin-right: auto;
+			width: 980px;
+			}
+			.rf-alp-searchbox-wrapper {
+			text-align: center;
+			padding-bottom: 12px;
+			position: relative;
+			}
+			.as-l-container {
+			margin-left: auto;
+			margin-right: auto;
+			width: 980px;
+			}
+			.rf-serp-searchbox .rf-serp-autocomplete .form-textbox {
+			z-index: 9996;
+			}
+			.form-textbox {
+			position: relative;
+			}
+			.rf-alp-searchbox-wrapper .rf-serp-autocomplete .form-textbox-input {
+			font-size: 18px;
+			padding-left: 43px;
+			padding-right: 43px;
+			}
+			.rf-alp-searchbox-wrapper .rf-serp-searchbox .rf-serp-search-input {
+			height: 56px;
+			flex-basis: 59%;
+			max-width: 59%;
+			}
+			.rf-serp-searchbox .rf-serp-search-input {
+			padding-top: 0;
+			margin-bottom: 0;
+			border-radius: 8px;
+			height: 2.2rem;
+			}
+			.form-textbox .form-textarea, .form-textbox .form-textbox-input{
+			olor: hsl(240deg 3% 12%);
+			border-color: hsl(240deg 6% 83%);
+			background-color: hsl(0deg 0% 100% / 80%);
+			text-overflow: ellipsis;
+			}
+			.as-l-container {
+			margin-left: auto;
+			margin-right: auto;
+			width: 980px;
+			}
+			.tabnav-item {
+			display: inline-block;
+			padding-left: 60px;
+			list-style: none;
+			outline: none;
+			}
+			.rf-browser-container .tabnav-link.current {
+			pointer-events: auto;
+			}
+			.tabnav-link.current {
+			color: hsl(240deg 3% 12%);
+			text-decoration: none;
+			cursor: default;
+			z-index: 10;
+			}
+			.tabnav-link {
+			font-size: 17px;
+			line-height: 1;
+			font-weight: 400;
+			letter-spacing: -.021em;
+			font-family: SF Pro Text,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+			padding: 9px 0 11px;
+			margin-top: 2px;
+			margin-bottom: 4px;
+			color: hsl(240deg 2% 44%);
+			text-align: left;
+			text-decoration: none;
+			display: block;
+			position: relative;
+			z-index: 0;
+			}
+			.rf-browser-navbar .tabnav-item {
+			border-bottom: none;
+			}
+			.dd-acc-202110-homepod-mini .dd-l-mw1070 {
+			padding-top: 40px;
+			}
+			.dd-l-mw1070 {
+			max-width: 1070px;
+			min-width: 980px;
+			margin: auto;
+			position: relative;
+			overflow: hidden;
+			}
+			.dd-fill-backgroundfooter {
+			background-color: hsl(0deg 0% 95%);
+			}
+			.dd-l-plate {
+			position: relative;
+			margin-left: auto;
+			margin-right: auto;
+			width: 980px;
+			}
+			.dd-acc-202110-homepod-mini .dd-info {
+			text-align: center;
+			width: 600px;
+			margin: auto;
+			}
+			.dd-acc-202110-homepod-mini .dd-info+.dd-image {
+			padding-top: 28px;
+			}
+			.dd-acc-202110-homepod-mini .dd-image {
+			display: flex;
+			justify-content: center;
+			}
+			.dd-fill-tertiary {
+			background-color: hsl(240deg 11% 96%);
+			--ribbon-background-color: hsl(240deg 11% 96%);
+			}
+			.dd-l-plate {
+			position: relative;
+			margin-left: auto;
+			margin-right: auto;
+			width: 980px;
+			}
+			.dd-acc-header .column:first-child {
+			display: flex;
+			align-items: center;
+			}
+			.dd-acc-header .dd-info {
+			position: relative;
+			}
+			.t-headline {
+			font-size: 48px;
+			line-height: 1.08349;
+			font-weight: 600;
+			letter-spacing: -.003em;
+			font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue",Helvetica,Arial,sans-serif;
+			}
+			.t-intro {
+			font-size: 21px;
+			line-height: 1.381;
+			font-weight: 400;
+			letter-spacing: .011em;
+			font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue",Helvetica,Arial,sans-serif;
+			}
+			.dd-acc-header .column:last-child {
+			display: flex;
+			align-items: flex-end;
+			}
+			.dd-acc-header .dd-background {
+			z-index: 1;
+			margin-left: -160px;
+			}
+			.large-4 {
+			max-width: 33.33333%;
+			}
+			.large-7 {
+			flex-basis: 58.33333%;
+			max-width: 58.33333%;
+			}
+			.dd-acc-header .dd-info {
+			z-index: 2;
+			margin-top: 97px;
+			padding: 30px 0;
+			}
+			.t-headline {
+			font-size: 48px;
+			line-height: 1.08349;
+			font-weight: 600;
+			letter-spacing: -.003em;
+			font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue",Helvetica,Arial,sans-serif;
+			}
+			.t-intro {
+			font-size: 21px;
+			line-height: 1.381;
+			font-weight: 400;
+			letter-spacing: .011em;
+			font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue",Helvetica,Arial,sans-serif;
+			}
+			.dd-acc-header .dd-background, .dd-acc-header .dd-info {
+			position: relative;
+			}
+			.dd-animate-image-swap .dd-background {
+			min-height: 480px;
+			}
+			.as-pinwheel-row {
+			width: auto;
+			margin: 0 -5px;
+			}
+			.rf-pinwheel-tiles {
+			display: flex;
+			flex-wrap: wrap;
+			margin: 0;
+			}
+			.rf-pinwheel-tiles .rf-pinwheel-item {
+			background-color: hsl(0deg 0% 95%);
+			border: 5px solid hsl(0deg 0% 100%);
+			list-style-type: none;
+			border-radius: 20px;
+			overflow: hidden;
+			}
+			.rf-pinwheel-item .as-pinwheel15-section .as-pinwheel-tile {
+			background-color: hsl(0deg 0% 95%);
+			}
+			.rf-pinwheel-tiles .as-pinwheel-tile {
+			border: none;
+			}
+			.as-pinwheel15-section .as-pinwheel-tile {
+			padding: 40px 40px 34px;
+			border: 5px solid hsl(0deg 0% 100%);
+			max-width: 100%;
+			background-color: hsl(240deg 11% 96%);
+			text-align: center;
+			box-sizing: border-box;
+			}
+			.as-pinwheel15-tile3 .as-pinwheel-tilehero {
+			padding: 65px 0 70px;
+			}
+			.as-pinwheel-tilehero {
+			text-align: center;
+			padding: 0;
+			line-height: 0;
+			}
+			h3{
+			font-family: SF Pro Text,SF Pro Icons,AOS Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+			}
+			.as-pinwheel15-section .as-pinwheel-tilelink {
+			font-size: 14px;
+			line-height: 1.42859;
+			font-weight: 400;
+			letter-spacing: -.016em;
+			font-family: SF Pro Text,SF Pro Icons,AOS Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+			font-weight: 600;
+			padding: 0 15px 14px;
+			}
+			.as-pinwheel-info .as-pinwheel-pricecurrent {
+			font-size: 14px;
+			line-height: 1.42859;
+			font-weight: 400;
+			letter-spacing: -.016em;
+			font-family: SF Pro Text,SF Pro Icons,AOS Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+			}
+			body {
+			font-family: 'Roboto', sans-serif!important;
+			margin:0;
+			padding:0;
+			box-sizing: border-box;
+			}
+			.mainscreen
+			{
+			min-height: 100vh;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			<!-- background-color: #DFDBE5; -->
+			color:#963E7B;
+			}
+			.card {
+			width: 60rem;
+			margin: auto;
+			background: white;
+			position:center;
+			align-self: center;
+			border-radius: 1.5rem;
+			box-shadow: 4px 3px 20px #3535358c;
+			display:flex;
+			flex-direction: row;
+			}
+			.leftside {
+			background: #030303;
+			width: 25rem;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			border-top-left-radius: 1.5rem;
+			border-bottom-left-radius: 1.5rem;
+			}
+			.product {
+			object-fit: cover;
+			width: 20em;
+			height: 20em;
+			border-radius: 100%;
+			}
+			.rightside {
+			background-color: #ffffff;
+			width: 35rem;
+			border-bottom-right-radius: 1.5rem;
+			border-top-right-radius: 1.5rem;
+			padding: 1rem 2rem 3rem 3rem;
+			}
+			p{
+			display:block;
+			font-size: 1.1rem;
+			font-weight: 400;
+			margin: .8rem 0;
+			}
+			.inputbox
+			{
+			color:#030303;
+			width: 100%;
+			padding: 0.5rem;
+			border: none;
+			border-bottom: 1.5px solid #ccc;
+			margin-bottom: 1rem;
+			border-radius: 0.3rem;
+			font-family: 'Roboto', sans-serif;
+			color: #615a5a;
+			font-size: 1.1rem;
+			font-weight: 500;
+			outline:none;
+			}
+			.expcvv {
+			display:flex;
+			justify-content: space-between;
+			padding-top: 0.6rem;
+			}
+			.expcvv_text{
+			padding-right: 1rem;
+			}
+			.expcvv_text2{
+			padding:0 1rem;
+			}
+			.button{
+			background: linear-gradient(
+			135deg
+			, #753370 0%, #298096 100%);
+			padding: 15px;
+			border: none;
+			border-radius: 50px;
+			color: white;
+			font-weight: 400;
+			font-size: 1.2rem;
+			margin-top: 10px;
+			width:100%;
+			letter-spacing: .11rem;
+			outline:none;
+			}
+			.button:hover
+			{
+			transform: scale(1.05) translateY(-3px);
+			box-shadow: 3px 3px 6px #38373785;
+			}
+			@media only screen and (max-width: 1000px) {
+			.card{
+			flex-direction: column;
+			width: auto;
+			}
+			.leftside{
+			width: 100%;
+			border-top-right-radius: 0;
+			border-bottom-left-radius: 0;
+			border-top-right-radius:0;
+			border-radius:0;
+			}
+			.rightside{
+			width:auto;
+			border-bottom-left-radius: 1.5rem;
+			padding:0.5rem 3rem 3rem 2rem;
+			border-radius:0;
+			}
+			}
+			@media (min-width: 992px) {
+			.col-lg-2.custom-width{
+			max-width: 11%;
+			}
+			}
+			#infiniarc-slider .carousel .carousel-indicators li {
+			display: inline-block;
+			width: 10px;
+			height: 10px;
+			text-indent: -99px;
+			cursor: pointer;
+			border: 1px solid #fff;
+			background: #fff;
+			border-radius: 6px
+			}
+			.home-slider .carousel .carousel-indicators li {
+			width: 50px !important;
+			height: 5px !important;
+			}
+			#infiniarc-slider .card {
+			border: none;
+			}
+			#carouselindicators .previous,
+			#carouselindicators .next{
+			font-size: 100px !important;
+			color: #ffffff;
+			}
+			#infiniarc-slider .container-fit-content {
+			width: 100%;
+			max-width: none;
+			padding: 0;
+			}
+			#infiniarc-slider .carousel-item img {
+			height : 600px;
+			}
+			#infiniarc-slider .carousel-control-prev,
+			#infiniarc-slider .carousel-control-next {
+			width: 8%;
+			}
+			#infiniarc-slider .slider-caption {
+			position: absolute;
+			/*right: 15%;*/
+			/*bottom: 20px;*/
+			left: 10%;
+			z-index: 10;
+			padding-top: 20px;
+			padding-bottom: 20px;
+			color: #FFFFFF;
+			text-align: left;
+			top: 40%;
+			}
+			#infiniarc-slider .slider-caption h4,
+			#infiniarc-slider .slider-caption p {
+			font-family: Montserrat;
+			font-style: normal;
+			}
+			#infiniarc-slider .slider-caption h4{
+			font-weight: bold;
+			font-size: 36px;
+			line-height: 44px;
+			}
+			#infiniarc-slider .slider-caption p{
+			font-weight: normal;
+			font-size: 24px;
+			line-height: 29px;
+			width: 65%;
+			margin:0;
+			}
+			#infiniarc-slider .button.button-learn {
+			background: rgba(196, 196, 196, 0.17);
+			padding-left: 45px;
+			padding-right: 45px;
+			}
+			#infiniarc-models .tab-content > .active{
+			width: 100%;
+			}
+			.fa {
+			font-family: "FontAwesome" !important;
+			}
+			.o_wsale_apply_list.active,.o_wsale_apply_grid.active {
+			color: black !important;
+			}
+			.te_custom_h_shop_container .te_shop_breadcrumb{
+			background-color: #1e1f24 !important;
+			}
+			.te_shop_breadcrumb .breadcrumb {
+			line-height: 3;
+			}
+			.te_no_products h3{
+			color: #fff !important;
+			}
+			#products_grid .te_theme_button {
+			font-weight: 900;
+			}
+			.te_quick_view,.o_add_wishlist,.o_add_compare {
+			color: #000 !important;
+			}
+			#products_grid .te_shop_grid {
+			padding: 15px !important;
+			}
+			#products_grid .te_shop_grid .te_product_info .o_wsale_product_btn .btn:hover {
+			background-color: #cc181e !important;
+			color: white !important;
+			}
+			.o_wsale_products_grid_table_wrapper .oe_product.te_shop_grid .te_product_info{
+			background-color: #1e1f24 !important;
+			}
+			#products_grid .table .o_wsale_product_grid_wrapper {
+			border: none;
+			transition: transform .2s;
+			}
+			#products_grid .table .o_wsale_product_grid_wrapper:hover {
+			transform: scale(1.05);
+			z-index: 38;
+			}
+			#products_grid .o_wsale_products_grid_table_wrapper > .table .o_wsale_product_grid_wrapper > *.card {
+			border-bottom: none;
+			}
+			#products_grid .o_wsale_product_grid_wrapper:hover {
+			box-shadow: none;
+			}
+			#products_grid .table .o_wsale_product_grid_wrapper .card.oe_product_cart:hover .o_wsale_product_information {
+			background-color: #1e1f24 !important;
+			}
+			.o_wsale_product_information .te_p_sm{
+			color: white;
+			font-weight: bold;
+			}
+			.o_wsale_product_btn {
+			display: none;
+			}
+			.oe_product_image img {
+			background-color: transparent !important;
+			}
+			.card.oe_product_cart {
+			background-color: transparent !important;
+			}
+			.oe_product_image.card-body {
+			background-color: transparent !important;
+			}
+			#products_grid .te_shop_grid h6.o_wsale_products_item_title .product_name {
+			-webkit-line-clamp: 2;
+			height: 48px;
+			color: #ce1922 !important;
+			font-weight: bolder;
+			font-size: 15px;
+			}
+			.product_price {
+			display: none !important;
+			}
+			.o_wsale_product_information .oe_subdescription{
+			display: none !important;
+			}
+			.product-price {
+			color: #fff ;
+			}
+			.product-price .offer-price {
+			color: #fff ;
+			font-weight: bolder;
+			font-size: 18px;
+			}
+			.product-price del{
+			color:#afafaf !important;
+			font-weight: bolder;
+			font-size: 14px;
+			}
+			.o_wsale_product_information .vat {
+			color: #a1a1a1;
+			text-align: center;
+			margin-top: -15px;
+			font-size: 12px;
+			font-weight: 300;
+			}
+			.o_wsale_product_information .quick {
+			position: absolute;
+			text-align: center;
+			width: 100%;
+			}
+			.o_wsale_product_information .quick a {
+			font-size: 0.8rem;
+			font-weight: 500;
+			color: #d2d2d2 !important;
+			}
+			.o_wsale_product_information .btn-group {
+			margin: 1rem 0;
+			}
+			.o_wsale_product_information .btn-group .show-toaster-cart {
+			padding-top: 15px;
+			background: linear-gradient(90deg, #212529 0%, #c22929 100%);
+			}
+			.o_wsale_product_information .btn-group .customize {
+			background: #ce1922;
+			font-size: 0.8rem;
+			font-weight: 600;
+			color: #fff;
+			padding: 1rem 2rem;
+			}
+			.o_wsale_products_item_title {
+			text-align: center !important;
+			}
+			.oe_website_sale.shop-page {
+			width: 90%;
+			}
+			.o_wsale_products_grid_table_wrapper .table th, .table td {
+			border-bottom: none !important;
+			}
+			#products_grid_before{
+			height: 100% !important;
+			}
+			.customize{
+			border-radius: 0px 5px 5px 0px;
+			}
+			.te_product_breadcrumb{
+			background-color: #FF0000;
+			}
+			.te_product_breadcrumb .breadcrumb li.breadcrumb-item > a,
+			.te_product_breadcrumb .breadcrumb li.breadcrumb-item > span{
+			color: #000000 !important;
+			}
+			.product-buttons{
+			display: flow-root;
+			width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="topnav">
+			<a class="navbar-brand logo " style="margin: -15px;margin-left: 115px;margin-top:-8px;"><i class="fa fa-apple" style="font-size:30px;"></i></a>
+			<a class="active" href="https://www.apple.com/in/">Store</a>
+			<a href="https://www.apple.com/in/mac/">Mac</a>
+			<a href="https://www.apple.com/in/ipad/">iPad</a>
+			<a href="https://www.apple.com/in/iphone/">iPhone</a>
+			<a href="https://www.apple.com/in/watch/">Watch</a>
+			<a href="https://www.apple.com/in/airpods/">AirPods</a>
+			<a href="https://www.apple.com/in/tv-home/">Tv &amp; Home</a>
+			<a href="https://www.apple.com/in/services/">Only on Apple</a>
+			<a href="https://www.apple.com/in/shop/goto/buy_accessories">Accessories</a>
+			<a href="/apple-support-sahil">Support</a>
+		</div>
+		<div>
+			<h1 style="text-align:center;font-size:50px;">iPhone 13 Pro</h1>
+			<h2 style="text-align:center;font-size:40px;">Oh So Pro</h2>
+			<div style="text-align:center;">
+				<img src="https://www.apple.com/v/iphone-13-pro/f/images/overview/design/finishes_1_static__lrwz60bo1d26_large.jpg"/>
+			</div>
+			<h2 style="text-align:center;font-size:40px;">Amazing</h2>
+			<div style="text-align:center;">
+				<img src="https://www.apple.com/v/iphone-13-pro/f/images/overview/design/finishes_1_alpine_green__bxgqurawflau_large.jpg"/>
+			</div>
+			<br/>
+			<br/>
+			<h2 style="text-align:center;font-size:25px;">The New</h2>
+			<h2 style="text-align:center;font-size:45px;">I Phone 13 Pro Max</h2>
+			<img src="https://www.apple.com/v/iphone-13-pro/f/images/overview/camera/intro/camera_system__rp945vhdfsiu_large.png" style="width:100%;"/>
+		</div>
+		<!-- <div id="alp-search-box">
+			<div class="rf-alp-search-container">
+				<h2 class="as-l-container rf-alp-search-header">
+					<span>Find the accessories you're looking for.</span>
+				</h2>
+			</div>
+			<div class="rf-alp-searchbox-wrapper" data-analytics-id="aalp">
+				<div class="as-l-container">
+					<form class="rf-serp-form" action="/in/search" data-analytics-region="search" data-s-object-id="c8f3046496774275aaaf16a7d80aa1f8" data-evar1="AOS: home/search/result |  |" data-evar30="home/search/result">
+						<div class="rf-serp-searchbox" region="search">
+							<div data-core-autocomplete="true" class="rf-serp-autocomplete">
+								<div class="rf-serp-searchbox-wrapper">
+									<div class="form-textbox form-textbox-with-button form-textbox-with-righticon">
+										<input id="4670ca20-bbbe-11ec-a934-a7318cb4a135" name="search" type="text" class="form-textbox-input rf-serp-search-input" aria-labelledby="4670ca20-bbbe-11ec-a934-a7318cb4a135_label" aria-describedby="4670ca20-bbbe-11ec-a934-a7318cb4a135_error " aria-invalid="false" autocomplete="off" placeholder="Search accessories" role="combobox" aria-autocomplete="list" aria-expanded="false" data-autom="searchInputBox" aria-owns="4670ca20-bbbe-11ec-a934-a7318cb4a135_listbox" value="" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div> -->
+		<br/>
+		<br/>
+		<div class="rs-cardsshelf">
+			<div id="shelf-3">
+				<div data-analytics-region="Shelf-1" data-analytics-section="Shelf-1" id="shelf-3_section">
+					<div class="as-l-container rs-cards-shelf-header">
+						<h2 class="rs-cards-shelf-mainheader" style="ont-size: 28px;     line-height: 1.14286;     font-weight: 600;     letter-spacing: .007em;     font-family: SF Pro Display,SF Pro Icons,AOS Icons,Helvetica Neue,Helvetica,Arial,sans-serif;     display: inline;">The latest.</h2>
+						<span class="rs-cards-shelf-secondaryheader" style="    font-size: 28px;     line-height: 1.14286;     font-weight: 600;     letter-spacing: .007em;     font-family: SF Pro Display,SF Pro Icons,AOS Icons,Helvetica Neue,Helvetica,Arial,sans-serif;     display: inline;color: hsl(240deg 2% 44%);">Take a look at what's new right now.</span>
+					</div>
+					<div class="rf-cards-scroller">
+						<div class="rf-cards-scroller-crop">
+							<div class="rf-cards-scroller-content" data-core-scroller="" style="overflow-x: scroll;">
+								<div class="rf-cards-scroller-platter" role="list" aria-label="The latest.">
+									<div role="listitem">
+										<div class="rf-cards-scroller-itemview">
+											<div class="rf-ccard rf-ccard-40">
+												<div class="as-util-relatedlink" data-trigger-click="click [data-relatedlink='32c4bcd0-b94c-11ec-a911-3367e472644e_link']">
+													<div class="rf-ccard-content rf-ccard-content-withfullimg">
+														<div class="rf-ccard-img-full-wrapper">
+															<img width="380" height="500" src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-40-iphone-13-pro-202203?wid=400&amp;hei=500&amp;fmt=p-jpg&amp;qlt=95&amp;.v=1645052290504" class="rf-ccard-img-full" style=" box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);  transform: translateY(-5px);   box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);border-radius: 10px;" />
+														</div>
+														<div class="rf-ccard-content-info">
+															<h3 class="rf-ccard-content-eyebrow">IPHONE 13 PRO</h3>
+															<div class="rf-ccard-content-header">
+																<a href="https://www.apple.com/in/shop/buy-iphone/iphone-13-pro" data-relatedlink="32c4bcd0-b94c-11ec-a911-3367e472644e_link" data-slot-name="shelf-3" data-display-name="AOS: " data-index="1" data-trigger-stoppropagation="true" class="rf-ccard-content-headerlink" style="color:black !important;">Oh. So. Pro.</a>
+															</div>
+															<div class="rf-ccard-content-desc">
+																Now in Alpine Green. From
+																<b>$119900.00/</b>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div data-core-scroller-item="" role="listitem" style="display: inline-block;">
+										<div class="rf-cards-scroller-itemview">
+											<div class="rf-ccard rf-ccard-40 rf-ccard-darkbg">
+												<div class="as-util-relatedlink" data-trigger-click="click [data-relatedlink='c01a4781-b951-11ec-8c8d-271dfa033abb_link']">
+													<div class="rf-ccard-content rf-ccard-content-withfullimg">
+														<div class="rf-ccard-img-full-wrapper">
+															<img width="400" height="500" alt="" src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-40-ipad-air-202203?wid=800&amp;hei=1000&amp;fmt=p-jpg&amp;qlt=95&amp;.v=1645636337374" srcset="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-40-ipad-air-202203?wid=400&amp;hei=500&amp;fmt=p-jpg&amp;qlt=95&amp;.v=1645636337374, https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-40-ipad-air-202203?wid=800&amp;hei=1000&amp;fmt=p-jpg&amp;qlt=95&amp;.v=1645636337374 2x" class="rf-ccard-img-full" />
+														</div>
+														<div class="rf-ccard-content-info">
+															<h3 class="rf-ccard-content-eyebrow">IPAD AIR</h3>
+															<div class="rf-ccard-content-header">
+																<a href="/in/shop/buy-ipad/ipad-air" data-relatedlink="c01a4781-b951-11ec-8c8d-271dfa033abb_link" data-slot-name="shelf-3" data-display-name="AOS: " data-index="2" data-trigger-stoppropagation="true" class="rf-ccard-content-headerlink" style="color:white !important;font-size:20px !important;">Light. Bright. Full of might.</a>
+															</div>
+															<div class="rf-ccard-content-desc" style="color:white !important;">
+																From
+																<b>$54900.00/</b>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div data-core-scroller-item="" role="listitem">
+										<div class="rf-cards-scroller-itemview">
+											<div class="rf-ccard rf-ccard-40">
+												<div class="as-util-relatedlink" data-trigger-click="click [data-relatedlink='b07c7d31-b955-11ec-a6a8-c59b5f201899_link']">
+													<div class="rf-ccard-content rf-ccard-content-withfullimg">
+														<div class="rf-ccard-img-full-wrapper">
+															<img width="400" height="500" alt="" src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-40-mac-studio-202203?wid=800&amp;hei=1000&amp;fmt=p-jpg&amp;qlt=95&amp;.v=1645043848581" srcset="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-40-mac-studio-202203?wid=400&amp;hei=500&amp;fmt=p-jpg&amp;qlt=95&amp;.v=1645043848581, https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-40-mac-studio-202203?wid=800&amp;hei=1000&amp;fmt=p-jpg&amp;qlt=95&amp;.v=1645043848581 2x" class="rf-ccard-img-full" />
+														</div>
+														<div class="rf-ccard-content-info">
+															<h3 class="rf-ccard-content-eyebrow">MAC STUDIO</h3>
+															<div class="rf-ccard-content-header">
+																<a href="/in/shop/buy-mac/mac-studio" data-relatedlink="b07c7d31-b955-11ec-a6a8-c59b5f201899_link" data-slot-name="shelf-3" data-display-name="AOS: " data-index="3" data-trigger-stoppropagation="true" class="rf-ccard-content-headerlink" style="color:black !important;">Empower station.</a>
+															</div>
+															<div class="rf-ccard-content-desc">
+																From
+																<b>$189900.00/</b>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div data-core-scroller-item="" role="listitem">
+										<div class="rf-cards-scroller-itemview">
+											<div class="rf-ccard rf-ccard-40">
+												<div class="as-util-relatedlink" data-trigger-click="click [data-relatedlink='b07c7d32-b955-11ec-a6a8-c59b5f201899_link']">
+													<div class="rf-ccard-content rf-ccard-content-withfullimg">
+														<div class="rf-ccard-img-full-wrapper">
+															<img width="400" height="500" alt="" src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-40-studio-display-202203?wid=800&amp;hei=1000&amp;fmt=p-jpg&amp;qlt=95&amp;.v=1645043848762" srcset="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-40-studio-display-202203?wid=400&amp;hei=500&amp;fmt=p-jpg&amp;qlt=95&amp;.v=1645043848762, https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-40-studio-display-202203?wid=800&amp;hei=1000&amp;fmt=p-jpg&amp;qlt=95&amp;.v=1645043848762 2x" class="rf-ccard-img-full" />
+														</div>
+														<div class="rf-ccard-content-info">
+															<h3 class="rf-ccard-content-eyebrow">STUDIO DISPLAY</h3>
+															<div class="rf-ccard-content-header">
+																<a href="/in/shop/buy-mac/apple-studio-display" data-relatedlink="b07c7d32-b955-11ec-a6a8-c59b5f201899_link" data-slot-name="shelf-3" data-display-name="AOS: " data-index="4" data-trigger-stoppropagation="true" class="rf-ccard-content-headerlink" style="color:black !important;">A sight to be bold.</a>
+															</div>
+															<div class="rf-ccard-content-desc">
+																From
+																<b>$159900.00/</b>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div data-core-scroller-item="" role="listitem">
+										<div class="rf-cards-scroller-itemview">
+											<div class="rf-ccard rf-ccard-40">
+												<div class="as-util-relatedlink" data-trigger-click="click [data-relatedlink='20367dc0-b95a-11ec-b835-57435fcf6624_link']">
+													<div class="rf-ccard-content rf-ccard-content-withfullimg">
+														<div class="rf-ccard-img-full-wrapper">
+															<img width="400" height="500" alt="" src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-40-iphone-se-202203_GEO_EMEA?wid=800&amp;hei=1000&amp;fmt=p-jpg&amp;qlt=95&amp;.v=1645721593443" srcset="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-40-iphone-se-202203_GEO_EMEA?wid=400&amp;hei=500&amp;fmt=p-jpg&amp;qlt=95&amp;.v=1645721593443, https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-40-iphone-se-202203_GEO_EMEA?wid=800&amp;hei=1000&amp;fmt=p-jpg&amp;qlt=95&amp;.v=1645721593443 2x" class="rf-ccard-img-full" />
+														</div>
+														<div class="rf-ccard-content-info">
+															<h3 class="rf-ccard-content-eyebrow">IPHONE SE</h3>
+															<div class="rf-ccard-content-header">
+																<a href="https://www.apple.com/in/shop/buy-iphone/iphone-se" data-relatedlink="20367dc0-b95a-11ec-b835-57435fcf6624_link" data-slot-name="shelf-3" data-display-name="AOS: " data-index="5" data-trigger-stoppropagation="true" class="rf-ccard-content-headerlink" style="color:black !important;">
+																Love the power.
+																<br />
+																Love the price.
+																</a>
+															</div>
+															<div class="rf-ccard-content-desc">
+																From
+																<b>$43900.00/</b>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div data-core-scroller-item="" role="listitem">
+										<div class="rf-cards-scroller-itemview">
+											<div class="rf-ccard rf-ccard-40">
+												<div class="as-util-relatedlink" data-trigger-click="click [data-relatedlink='20367dc1-b95a-11ec-b835-57435fcf6624_link']">
+													<div class="rf-ccard-content rf-ccard-content-withfullimg">
+														<div class="rf-ccard-img-full-wrapper">
+															<img width="400" height="500" alt="" src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-40-iphone-13-202203?wid=800&amp;hei=1000&amp;fmt=p-jpg&amp;qlt=95&amp;.v=1645052290452" srcset="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-40-iphone-13-202203?wid=400&amp;hei=500&amp;fmt=p-jpg&amp;qlt=95&amp;.v=1645052290452, https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-40-iphone-13-202203?wid=800&amp;hei=1000&amp;fmt=p-jpg&amp;qlt=95&amp;.v=1645052290452 2x" class="rf-ccard-img-full" />
+														</div>
+														<div class="rf-ccard-content-info">
+															<h3 class="rf-ccard-content-eyebrow">IPHONE 13</h3>
+															<div class="rf-ccard-content-header">
+																<a href="https://www.apple.com/in/shop/buy-iphone/iphone-13" data-relatedlink="20367dc1-b95a-11ec-b835-57435fcf6624_link" data-slot-name="shelf-3" data-display-name="AOS: " data-index="6" data-trigger-stoppropagation="true" class="rf-ccard-content-headerlink" style="color:black !important;">Your new superpower.</a>
+															</div>
+															<div class="rf-ccard-content-desc">
+																Now in Green. From
+																<b>$69900.00/</b>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div data-core-scroller-item="" role="listitem">
+										<div class="rf-cards-scroller-itemview">
+											<div class="rf-ccard rf-ccard-40">
+												<div class="as-util-relatedlink" data-trigger-click="click [data-relatedlink='2036a4d0-b95a-11ec-b835-57435fcf6624_link']">
+													<div class="rf-ccard-content rf-ccard-content-withfullimg">
+														<div class="rf-ccard-img-full-wrapper">
+															<img width="400" height="500" alt="" src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-40-watch-bands-202203?wid=800&amp;hei=1000&amp;fmt=p-jpg&amp;qlt=95&amp;.v=1645052880599" srcset="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-40-watch-bands-202203?wid=400&amp;hei=500&amp;fmt=p-jpg&amp;qlt=95&amp;.v=1645052880599, https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-40-watch-bands-202203?wid=800&amp;hei=1000&amp;fmt=p-jpg&amp;qlt=95&amp;.v=1645052880599 2x" class="rf-ccard-img-full" />
+														</div>
+														<div class="rf-ccard-content-info">
+															<h3 class="rf-ccard-content-eyebrow">APPLE WATCH BANDS</h3>
+															<div class="rf-ccard-content-header">
+																<a href="/in/shop/watch/bands" data-relatedlink="2036a4d0-b95a-11ec-b835-57435fcf6624_link" data-slot-name="shelf-3" data-display-name="AOS: home/shop_watch/bands" data-index="7" data-trigger-stoppropagation="true" class="rf-ccard-content-headerlink" style="color:black !important;">New hues in bloom.</a>
+															</div>
+															<div class="rf-ccard-content-desc">Shop the latest band styles and colors.</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="rs-cardsshelf">
+			<div data-analytics-region="Shelf-6" data-analytics-section="Shelf-6" id="shelf-9_section">
+				<div class="as-l-container rs-cards-shelf-header">
+					<h2 class="rs-cards-shelf-mainheader">Do more with Apple products.</h2>
+					<span class="rs-cards-shelf-secondaryheader">Here's where the fun begins.</span>
+				</div>
+				<div class="rf-cards-scroller">
+					<div class="rf-cards-scroller-crop">
+						<div data-core-scroller="" class="rf-cards-scroller-content">
+							<div data-core-scroller-platter="" class="rf-cards-scroller-platter" role="list" aria-label="Do more with Apple products.">
+								<div data-core-scroller-item="" role="listitem" style="padding:0px 40px 0px 0px;">
+									<div class="rf-cards-scroller-itemview">
+										<div class="rf-ccard rf-ccard-50">
+											<div class="as-util-relatedlink" data-trigger-click="click [data-relatedlink='3d35f880-b967-11ec-b539-21396a6d8d3f_link']">
+												<div class="rf-ccard-content rf-ccard-content-withfullimg">
+													<div class="rf-ccard-img-full-wrapper">
+														<img width="480" height="500" alt="" src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-50-subscriptions-202108?wid=960&amp;hei=1000&amp;fmt=p-jpg&amp;qlt=95&amp;.v=1626375547000" srcset="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-50-subscriptions-202108?wid=480&amp;hei=500&amp;fmt=p-jpg&amp;qlt=95&amp;.v=1626375547000, https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-50-subscriptions-202108?wid=960&amp;hei=1000&amp;fmt=p-jpg&amp;qlt=95&amp;.v=1626375547000 2x" class="rf-ccard-img-full" />
+													</div>
+													<div class="rf-ccard-content-info">
+														<div class="rf-ccard-content-header">
+															<a href="https://www.apple.com/in/apple-one" target="_blank" rel="noopener noreferrer" data-relatedlink="3d35f880-b967-11ec-b539-21396a6d8d3f_link" data-slot-name="shelf-9" data-display-name="AOS: " data-index="1" data-trigger-stoppropagation="true" class="rf-ccard-content-headerlink" style="color:black !important;">Four Apple services. One easy subscription.</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div data-core-scroller-item="" role="listitem">
+									<div class="rf-cards-scroller-itemview">
+										<div class="rf-ccard rf-ccard-50">
+											<div class="as-util-relatedlink" data-trigger-click="click [data-relatedlink='3d361f90-b967-11ec-b539-21396a6d8d3f_link']">
+												<div class="rf-ccard-content rf-ccard-content-withfullimg">
+													<div class="rf-ccard-img-full-wrapper">
+														<img width="480" height="500" alt="" src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-50-homekit-202110_GEO_IN?wid=960&amp;hei=1000&amp;fmt=p-jpg&amp;qlt=95&amp;.v=1634069675000" srcset="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-50-homekit-202110_GEO_IN?wid=480&amp;hei=500&amp;fmt=p-jpg&amp;qlt=95&amp;.v=1634069675000, https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-50-homekit-202110_GEO_IN?wid=960&amp;hei=1000&amp;fmt=p-jpg&amp;qlt=95&amp;.v=1634069675000 2x" class="rf-ccard-img-full" />
+													</div>
+													<div class="rf-ccard-content-info">
+														<h3 class="rf-ccard-content-eyebrow">HOME</h3>
+														<div class="rf-ccard-content-header">
+															<a href="https://www.apple.com/in/ios/home" target="_blank" rel="noopener noreferrer" data-relatedlink="3d361f90-b967-11ec-b539-21396a6d8d3f_link" data-slot-name="shelf-9" data-display-name="AOS: " data-index="2" data-trigger-stoppropagation="true" class="rf-ccard-content-headerlink" style="color:black !important;">See how one app can control your entire home.</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div data-core-scroller-item="" role="listitem" style="margin-left:40px;">
+									<div class="rf-cards-scroller-itemview">
+										<div class="rf-ccard rf-ccard-50">
+											<div class="as-util-relatedlink" data-trigger-click="click [data-relatedlink='3d361f90-b967-11ec-b539-21396a6d8d3f_link']">
+												<div class="rf-ccard-content rf-ccard-content-withfullimg">
+													<div class="rf-ccard-img-full-wrapper">
+														<img width="480" height="500" alt="" src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-40-edu-202108_GEO_IN?wid=800&amp;hei=1000&amp;fmt=p-jpg&amp;qlt=95&amp;.v=1627513224000" srcset="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-40-edu-202108_GEO_IN?wid=400&amp;hei=500&amp;fmt=p-jpg&amp;qlt=95&amp;.v=1627513224000, https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-40-edu-202108_GEO_IN?wid=800&amp;hei=1000&amp;fmt=p-jpg&amp;qlt=95&amp;.v=1627513224000 2x" class="rf-ccard-img-full" />
+													</div>
+													<div class="rf-ccard-content-info">
+														<h3 class="rf-ccard-content-eyebrow">EDUCATION</h3>
+														<div class="rf-ccard-content-header">
+															<a href="https://www.apple.com/in/ios/home" target="_blank" rel="noopener noreferrer" data-relatedlink="3d361f90-b967-11ec-b539-21396a6d8d3f_link" data-slot-name="shelf-9" data-display-name="AOS: " data-index="2" data-trigger-stoppropagation="true" class="rf-ccard-content-headerlink" style="color:black !important;">Save on Mac or iPad with education pricing.</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="dd-acc-202110-homepod-mini">
+			<div class="dd-l-mw1070 dd-fill-backgroundfooter">
+				<div class="dd-l-plate">
+					<div class="dd-info">
+						<h2 style="color:black !important;" class="t-headline-reduced dd-expand-large-6 dd-compact-small-6">You've never heard colour like this.</h2>
+						<p style="color:black !important;" class="dd-subcopy dd-compact-large-15 dd-compact-small-10">Made to fill every room with rich, 360-degree audio. Now available in five colours.</p>
+						<p style="color:black !important;" class="dd-link">
+							<a href="https://www.apple.com/in/shop/buy-homepod/homepod-mini" data-slot-name="main13" data-feature-name="Astro Link" data-display-name="AOS: home/shop_homepod/family/homepod_mini" class="more" style="color: hsl(210deg 100% 40%) !important;">Shop HomePod mini &gt;</a>
+						</p>
+					</div>
+					<div class="dd-image">
+						<img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/homepod-mini-accessories-202110?wid=1070&amp;hei=265&amp;fmt=jpeg&amp;qlt=95&amp;.v=1633526327000" alt="" width="1070" height="265" data-scale-params-2="wid=2140&amp;hei=531&amp;fmt=jpeg&amp;qlt=95&amp;.v=1633526327000" data-scale-initial="1" class="dd-hero ir" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="dd-acc-header dd-fill-tertiary dd-animate-image-swap" style="margin-top:50px;">
+			<div class="dd-l-plate">
+				<div class="row">
+					<div class="column large-4 small-12">
+						<div class="dd-info" style="margin-top:20px;">
+							<h2 class="t-headline" style="color:black !important;">Mix. Match. MagSafe.</h2>
+							<p class="t-intro" style="color:black !important;">Snap on a case, wallet, wireless charger or battery pack.</p>
+							<p class="t-intro" style="color:black !important;">
+								<a href="/in/shop/accessories/all/magsafe" data-slot-name="main1" data-feature-name="Astro Link" data-display-name="AOS: home/shop_accessories/all_accessories/magsafe" class="more" style="color: hsl(210deg 100% 40%) !important;">Shop MagSafe &gt;</a>
+							</p>
+						</div>
+					</div>
+					<div class="column large-7 small-12">
+						<div class="dd-background">
+							<img style="max-width:193% !important;" src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-magsafe-header-accessories-06-202203?wid=1440&amp;hei=480&amp;fmt=jpeg&amp;qlt=95&amp;.v=1645033128765" alt="" width="1440" height="480" data-scale-params-2="wid=2880&amp;hei=960&amp;fmt=jpeg&amp;qlt=95&amp;.v=1645033128765" data-scale-initial="1" class="dd-slide6 ir" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div role="main" class="rf-accessories">
+		<div class="as-l-fullwidth as-pinwheel as-pinwheel15 as-pinwheel-isfooterlinkpresent" data-template="PW15_LR1S4-flex">
+		<div class="as-l-container">
+			<div class="as-pinwheel-header" style="margin-top:10px;">
+				<h2 class="as-pinwheel-title" style="margin-left:275px;font-family: SF Pro Text,SF Pro Icons,AOS Icons,Helvetica Neue,Helvetica,Arial,sans-serif;">Featured iPhone accessories.</h2>
+			</div>
+		</div>
+		<div>
+			<ul class="rf-pinwheel-tiles">
+				<li class="rf-pinwheel-item column large-4" data-autom="pinwheel15-tile3">
+					<div class="as-pinwheel15-section as-pinwheel15-smalltile as-pinwheel15-smalltileleft as-pinwheel15-tile3 as-util-relatedlink relatedlink" data-position="2" data-relatedlink="pl_main2_MM2X3">
+						<div class="as-pinwheel-tile">
+							<div data-relatedlink="pl_main2_MM2X3" class="as-util-relatedlink" data-trigger-click="click [data-relatedlink='pl_main2_MM2X3']">
+								<div class="as-pinwheel-tilehero">
+									<img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MM2X3?wid=266&amp;hei=291&amp;fmt=png-alpha&amp;.v=1630622653000" class="ir as-pinwheel-tileheroimage" alt="" width="266" height="291" data-scale-params-2="wid=532&amp;hei=582&amp;fmt=png-alpha&amp;.v=1630622653000" data-scale-initial="1" />
+								</div>
+								<div class="as-pinwheel-infosection">
+									<div class="as-pinwheel-tileheader as-pinwheel-noviolator" />
+										<h3 class="as-pinwheel-tiletitle" style="color:black !important;">
+											<a href="/in/shop/product/MM2X3ZM/A/iphone-13-clear-case-with-magsafe?fnode=00211f2f20cc718b3062dd61bfb6b8510d8a4d7992af0230f0e813569443460ac472acb2d668e5c450d07ed1e248a72f5990e6acbf1220124739a87a3ddfc6b34a735e5ba55ad2f6ddfe655696a6e4a59f85c2d89781c07204a0f6cfe808daa9" data-slot-name="main2" data-feature-name="PW15_LR1S4-react" data-display-name="iPhone 13 Clear Case with MagSafe" data-part-number="MM2X3" class="as-pinwheel-tilelink" data-relatedlink="pl_main2_MM2X3" data-trigger-stoppropagation="" data-evar11="MM2X3|pinwheel" style="color:black !important;">iPhone 13 Clear Case with MagSafe</a>
+										</h3>
+										<div class="as-pinwheel-info">
+											<div class="as-pinwheel-price" style="color:black !important;">
+												<span class="as-pinwheel-pricecurrent">
+												MRP $4900.00/
+												<span class="rf-recommendations-accessory-pricedesc">(Incl. of all taxes)</span>
+												</span>
+												<div class="as-price-savings">
+													<span />
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="as-pinwheel-colorsection" />
+									</div>
+								</div>
+							</div>
+				</li>
+				<li class="rf-pinwheel-item column large-8" data-autom="pinwheel15-tile2" style="margin-left:10px;">
+				<div class="as-pinwheel15-section as-pinwheel15-largetile as-pinwheel15-largetileright as-pinwheel15-tile2 as-util-relatedlink relatedlink" data-position="1" data-relatedlink="pl_main2_MN6G3">
+				<div class="as-pinwheel-tile">
+				<div data-relatedlink="pl_main2_MN6G3" class="as-util-relatedlink" data-trigger-click="click [data-relatedlink='pl_main2_MN6G3']">
+				<div class="as-pinwheel-tilehero">
+				<img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MN6G3_FV401?wid=710&amp;hei=465&amp;fmt=png-alpha&amp;.v=1645464694370" class="ir as-pinwheel-tileheroimage" alt="" width="710" height="465" data-scale-params-2="wid=1420&amp;hei=930&amp;fmt=png-alpha&amp;.v=1645464694370" data-scale-initial="1" />
+				</div>
+				<div class="as-pinwheel-infosection">
+				<div class="as-pinwheel-tileheader ">
+				<div class="violator-wrapper" style="color:black !important;">
+				<span class="violator-frameless as-violator-alt new">New</span>
+				</div>
+				</div>
+				<h3 class="as-pinwheel-tiletitle" style="color:black !important;">
+				<a href="/in/shop/product/MN6G3ZM/A/iphone-se-silicone-case-chalk-pink?fnode=e7c234eabfe537bb3f9f5462ff1ea992b9cc6d9f819b13812a0784f98137bd3611e150a08cb809f9143eef14a9e26cbc8b91f0aa3dfa04e0a75e1f78f55730516a6ab3f9a8a2078b482150ab697cab44cd2a01875579526c8cf01d978215d0b7" data-slot-name="main2" data-feature-name="PW15_LR1S4-react" data-display-name="iPhone SE Silicone Case - Chalk Pink" data-part-number="MN6G3" class="as-pinwheel-tilelink" data-relatedlink="pl_main2_MN6G3" data-trigger-stoppropagation="" data-evar11="MN6G3|pinwheel" style="color:black !important;">iPhone SE Silicone Case</a>
+				</h3>
+				<div class="as-pinwheel-info" style="color:black !important;">
+				<div class="as-pinwheel-price">
+				<span class="as-pinwheel-pricecurrent">
+				MRP $3500.00/
+				<span class="rf-recommendations-accessory-pricedesc">(Incl. of all taxes)</span>
+				</span>
+				<div class="as-price-savings">
+				<span />
+				</div>
+				</div>
+				</div>
+				</div>
+				</div>
+				</div>
+				</div>
+				</li>
+			</ul>
+			</div>
+			</div>
+		</div>
+		<div class="mainscreen">
+			<div class="card">
+				<div class="leftside">
+					<img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-13-pro-family-hero?wid=940&hei=1112&fmt=png-alpha&.v=1644969385433" class="product" alt="Shoes" />
+				</div>
+				<div class="rightside">
+					<form action="">
+						<h1 style="color:black !important;">CheckOut</h1>
+						<h2 style="color:black !important;">Payment Information</h2>
+						<p>Cardholder Name</p>
+						<input type="text" class="inputbox" name="name" required="" />
+						<p>Card Number</p>
+						<input type="number" class="inputbox" name="card_number" id="card_number" required="" />
+						<p>Card Type</p>
+						<select class="inputbox" name="card_type" id="card_type" required="">
+							<option value="">--Select a Card Type--</option>
+							<option value="Visa">Visa</option>
+							<option value="RuPay">RuPay</option>
+							<option value="MasterCard">MasterCard</option>
+						</select>
+						<div class="expcvv">
+							<p class="expcvv_text">Expiry</p>
+							<input type="date" class="inputbox" name="exp_date" id="exp_date" required="" />
+							<p class="expcvv_text2">CVV</p>
+							<input type="password" class="inputbox" name="cvv" id="cvv" required="" />
+						</div>
+						<p />
+							<button type="submit" class="button">CheckOut</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
